@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
- 
+using Variables;
+
 namespace Operators
 {
     internal class Program
@@ -13,7 +14,7 @@ namespace Operators
             // Operatörler : kodumuzun içinde aritmetik işlemler, karşılaştırma işlemleri, kontrol işlemleri yaparken kullandığımız sembollerdir.
 
             /* 
-            1. Aritmetik operatörler : +,-,*,/,%
+          1. Aritmetik işlem operatörleri : +,-,*,/,%
                 + sayıların arasına konulduğunda "toplama" operatörüdür. ifadelerden biri sayı değil ise o zaman "birleştirme" operatörü olarak çalışır.
                 % mod alma operatörüdür. 1. sayının 2. sayıya bölümünden artan değeri verir. 10 % 7 = 3
             2. Atama operatörü : =
@@ -66,6 +67,15 @@ namespace Operators
 
             a++;
             Console.WriteLine("a: "+a);
+
+
+            int renkKodu = 3;
+
+            Console.WriteLine( (Color)renkKodu );
+
+
+
+            Console.ReadKey();
         }
     }
 }

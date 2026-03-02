@@ -6,3 +6,7 @@ C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\Co
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\obj\Debug\Operators.exe
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\obj\Debug\Operators.pdb
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\obj\Debug\Operators.exe.config
+C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\bin\Debug\Variables.exe
+C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\bin\Debug\Variables.pdb
+C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\bin\Debug\Variables.exe.config
+C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\ConsoleApps\Operators\obj\Debug\Operators.csproj.Up2Date

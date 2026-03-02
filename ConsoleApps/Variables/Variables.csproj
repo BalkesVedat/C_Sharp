@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF865594-D953-4AE3-B330-B104E3D17370}</ProjectGuid>
+    <ProjectGuid>{5CA594E0-979E-4C15-9F19-3C80AE2DEC39}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Operators</RootNamespace>
-    <AssemblyName>Operators</AssemblyName>
+    <RootNamespace>Variables</RootNamespace>
+    <AssemblyName>Variables</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -48,12 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Variables\Variables.csproj">
-      <Project>{5ca594e0-979e-4c15-9f19-3c80ae2dec39}</Project>
-      <Name>Variables</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
