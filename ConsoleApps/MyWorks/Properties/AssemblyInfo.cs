@@ -5,22 +5,22 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Variables")]
+[assembly: AssemblyTitle("MyWorks")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Variables")]
+[assembly: AssemblyProduct("MyWorks")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
-// to COM components.  If you need to access a bookType in this assembly from
-// COM, set the ComVisible attribute to true on that bookType.
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5ca594e0-979e-4c15-9f19-3c80ae2dec39")]
+[assembly: Guid("7f2e0ee3-3855-4cdb-b9da-d72130244fe4")]
 
 // Version information for an assembly consists of the following four values:
 //

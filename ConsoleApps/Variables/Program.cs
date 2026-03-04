@@ -7,7 +7,37 @@ using System.Threading.Tasks;
 
 namespace Variables
 {
+    class Book
+    {
+        //constructor method
+        public Book() 
+        {
+            Console.WriteLine("aaaaaaaaaaaaa");
+        }
 
+        public Book(int iD, string name, string auth)
+        { 
+            bookID = iD;
+            bookName = name;
+            author = auth;
+            Console.WriteLine("bbbbbbbbbbbbb");
+        }
+
+
+        //Field (alan) : class değişkenleri
+        public int bookID;
+        public string bookName;
+        public string author;
+        public int pages;
+        public string bookType; // db den 1,2,3 gibi datası geliyorsa int olmalı.
+        public string publisher; 
+        
+
+
+
+    }
+
+    #region Öncekiler
     public struct Student
     {
         public int studentID;
@@ -43,6 +73,9 @@ namespace Variables
 
     internal class Program
     {
+
+
+
         static void Main(string[] args)
         {
             /*
@@ -64,193 +97,231 @@ namespace Variables
             //Numeric Types
             //-----------------------------------------------------
 
-            byte examPoint = 75;  //Camel Casing Notation
+            //    byte examPoint = 75;  //Camel Casing Notation
 
-            short orderAmount = 5000;
+            //    short orderAmount = 5000;
 
-            // orderAmount = 75000; overflow error
-            orderAmount = short.MaxValue;
+            //    // orderAmount = 75000; overflow error
+            //    orderAmount = short.MaxValue;
 
-            int intOrderAmount = 7500000;
+            //    int intOrderAmount = 7500000;
 
-            double unitPrice = 7.89;
+            //    double unitPrice = 7.89;
 
-            bool isActive = false;
+            //    bool isActive = false;
 
-            bool certainOrder = true;
+            //    bool certainOrder = true;
 
-            char unicodeGender = '₿';
+            //    char unicodeGender = '₿';
 
-            char unicodeCode = (char)8383;
+            //    char unicodeCode = (char)8383;
 
-            char gender = 'K';
+            //    char gender = 'K';
 
-            char code = (char)65;
+            //    char code = (char)65;
 
-            //struct
-            //-------------------------------------------------
-            //İçerisinde birden fazla değer taşıyabilen özel bir tipe ihtiyaç duyulduğunda struct olarak bu özel tipi (User Defined Type) yaratabiliriz. Verilerini stack te tutar. Bu nedenle 16 byte tan fazla değer taşıması önerilmez. Bu durumda struct yerine, reference tipli olan class nesnesi kullanımı önerilir. Struct, class tan hızlı çalışır.
+            //    //struct
+            //    //-------------------------------------------------
+            //    //İçerisinde birden fazla değer taşıyabilen özel bir tipe ihtiyaç duyulduğunda struct olarak bu özel tipi (User Defined Type) yaratabiliriz. Verilerini stack te tutar. Bu nedenle 16 byte tan fazla değer taşıması önerilmez. Bu durumda struct yerine, reference tipli olan class nesnesi kullanımı önerilir. Struct, class tan hızlı çalışır.
 
 
-            Student student = new Student();
+            //    Student student = new Student();
 
-            student.studentID = 1;
-            student.studentNameSurname = "Ali Kılıç";
-            student.avgPoint = 75.33;
-            student.status = Convert.ToInt32(StudentStatus.Graduated);
+            //    student.studentID = 1;
+            //    student.studentNameSurname = "Ali Kılıç";
+            //    student.avgPoint = 75.33;
+            //    student.status = Convert.ToInt32(StudentStatus.Graduated);
 
-            Console.WriteLine(student.studentNameSurname);
-            Console.WriteLine((StudentStatus)student.status);
+            //    Console.WriteLine(student.studentNameSurname);
+            //    Console.WriteLine((StudentStatus)student.status);
 
-            Console.WriteLine(gender);
-            Console.WriteLine(code);
+            //    Console.WriteLine(gender);
+            //    Console.WriteLine(code);
 
-            //Enum:
-            //-----------------------------------------------
-            //Rakamsal verileri ifadeye dönüştürür. Proje içinde rakamlarla bir bilgiyi tutmak yerine enum ile anlamlı ifadelere dönüştürerek kullanabiliriz. Bu sayede yazdığımız kodların daha kolay yorumlanabilir ve anlaşılır olması sağlanır. enum içinde tanımlanan her ifade için bir rakam karşılığı atanır. Eğer rakam ataması yapılmazsa bu ifadelere sıfır dan başlanarak, ya da bir üstteki ifadenin değeri 1 arttırılarak otomatik atanır.
+            //    //Enum:
+            //    //-----------------------------------------------
+            //    //Rakamsal verileri ifadeye dönüştürür. Proje içinde rakamlarla bir bilgiyi tutmak yerine enum ile anlamlı ifadelere dönüştürerek kullanabiliriz. Bu sayede yazdığımız kodların daha kolay yorumlanabilir ve anlaşılır olması sağlanır. enum içinde tanımlanan her ifade için bir rakam karşılığı atanır. Eğer rakam ataması yapılmazsa bu ifadelere sıfır dan başlanarak, ya da bir üstteki ifadenin değeri 1 arttırılarak otomatik atanır.
 
-            //2- Referans Tipleri
-            //
-            // string : karakter katarı. program içerisinde string değişkenlere değer atanırken "" içerisinde yazılır.
+            //    //2- Referans Tipleri
+            //    //
+            //    // string : karakter katarı. program içerisinde string değişkenlere değer atanırken "" içerisinde yazılır.
 
-            string name = "Ali";
+            //    string name = "Ali";
 
-            string productName = "Bardak";
+            //    string productName = "Bardak";
 
-            name = productName;
+            //    name = productName;
 
-            productName = "Tabak";
+            //    productName = "Tabak";
 
-            Console.WriteLine("ad:" + name);
-            Console.WriteLine("ürün:" + productName);
+            //    Console.WriteLine("ad:" + name);
+            //    Console.WriteLine("ürün:" + productName);
 
-            //Arrays: - Diziler
-            // İçerisinde aynı tipte birden fazla değer taşıyabilen değişken yapılarıdır.
+            //    //Arrays: - Diziler
+            //    // İçerisinde aynı tipte birden fazla değer taşıyabilen değişken yapılarıdır.
 
-            int productCost = 1500;
+            //    int productCost = 1500;
 
-            int[] productIDs = new int[] { 1, 5, 25, 528, 1590, 15980 };
+            //    int[] productIDs = new int[] { 1, 5, 25, 528, 1590, 15980 };
 
-            string[] cities = { "İstanbul", "Ankara", "İzmir", "Adana", "Kars" };
+            //    string[] cities = { "İstanbul", "Ankara", "İzmir", "Adana", "Kars" };
 
-            char[] chars = { 'A', 'B', 'C', '9' };
+            //    char[] chars = { 'A', 'B', 'C', '9' };
 
-            string word = "ABC9";
+            //    string word = "ABC9";
 
-            string[] studentNames = new string[10];
+            //    string[] studentNames = new string[10];
 
-            int orderNo = 1;
+            //    int orderNo = 1;
 
-            studentNames[9] = "Ali";
-            studentNames[0] = "Ayşe";
-            studentNames[orderNo] = "Oğuzhan";
+            //    studentNames[9] = "Ali";
+            //    studentNames[0] = "Ayşe";
+            //    studentNames[orderNo] = "Oğuzhan";
 
-        label:
-            Console.WriteLine(studentNames[orderNo - 1]);
+            //label:
+            //    Console.WriteLine(studentNames[orderNo - 1]);
 
-            orderNo++;
+            //    orderNo++;
 
-            if (orderNo <= 10)
-                goto label;
+            //    if (orderNo <= 10)
+            //        goto label;
 
-            Console.WriteLine("----------------------");
+            //    Console.WriteLine("----------------------");
 
-            char[] list = new char[50];
+            //    char[] list = new char[50];
 
-            Random rastgele = new Random();
+            //    Random rastgele = new Random();
 
-            int i = 0;
+            //    int i = 0;
 
-        label2:
-            list[i] = (char)(rastgele.Next(32, 126));
-            i++;
+            //label2:
+            //    list[i] = (char)(rastgele.Next(32, 126));
+            //    i++;
 
-            if (i < list.Length)
-                goto label2;
+            //    if (i < list.Length)
+            //        goto label2;
 
-            Console.WriteLine("--------------------------");
+            //    Console.WriteLine("--------------------------");
 
-            for (int j = 0; j < list.Length; j++)
-            {
-                Console.WriteLine(list[j]);
-            }
+            //    for (int j = 0; j < list.Length; j++)
+            //    {
+            //        Console.WriteLine(list[j]);
+            //    }
 
-            string[] colors = { "Siyah", "Beyaz", "Kırmızı", "Mavi", "Sarı", "Yeşil" };
+            //    string[] colors = { "Siyah", "Beyaz", "Kırmızı", "Mavi", "Sarı", "Yeşil" };
 
-            for (int k = 0; k < colors.Length ; k++)
-            {
-                Console.WriteLine(colors[k]);
-            }
+            //    for (int k = 0; k < colors.Length ; k++)
+            //    {
+            //        Console.WriteLine(colors[k]);
+            //    }
 
-            Array.Sort(colors);
-            Console.WriteLine("-----------------------");
-            
-            for (int k = 0; k < colors.Length; k++)
-            {
-                Console.WriteLine(colors[k]);
-            }
+            //    Array.Sort(colors);
+            //    Console.WriteLine("-----------------------");
 
-            Array.Reverse(colors);
-            Console.WriteLine("-----------------------");
+            //    for (int k = 0; k < colors.Length; k++)
+            //    {
+            //        Console.WriteLine(colors[k]);
+            //    }
 
-            for (int k = 0; k < colors.Length; k++)
-            {
-                Console.WriteLine(colors[k]);
-            }
+            //    Array.Reverse(colors);
+            //    Console.WriteLine("-----------------------");
 
-            double[] prices = new double[10];
+            //    for (int k = 0; k < colors.Length; k++)
+            //    {
+            //        Console.WriteLine(colors[k]);
+            //    }
 
-            int[] cityCodes = new int[81];
-            string[] cityNames = new string[81];
+            //    double[] prices = new double[10];
 
-            Console.WriteLine("--------------------------------");
+            //    int[] cityCodes = new int[81];
+            //    string[] cityNames = new string[81];
 
-            //INPUT : Kullanıcıdan değer alma
-            //----------------------------------------------
+            //    Console.WriteLine("--------------------------------");
 
-            int tryCount = 0;
+            //    //INPUT : Kullanıcıdan değer alma
+            //    //----------------------------------------------
 
-        retry:
+            //    int tryCount = 0;
 
-            // alternatif
-            //if (tryCount>3)
-            //{
-            //    Console.WriteLine("sdşfoskdfş lksşdflkşsldkf şskfş");
-            //    Console.ReadKey();
-            //    goto bitir;
-            //}
+            //retry:
 
-            try
-            {
-                Console.Write("Kullanıcı Adını Giriniz:");
-                string userName = Console.ReadLine();
+            //    // alternatif
+            //    //if (tryCount>3)
+            //    //{
+            //    //    Console.WriteLine("sdşfoskdfş lksşdflkşsldkf şskfş");
+            //    //    Console.ReadKey();
+            //    //    goto bitir;
+            //    //}
 
-                Console.Write("Şifrenizi Giriniz:");
-                int password = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception ex)
-            {
-                tryCount++;
-                Console.WriteLine("Bir hata oluştu. " + ex.Message + " Lütfen bilgilerinizi kontrol edip tekrar giriniz.");
+            //    try
+            //    {
+            //        Console.Write("Kullanıcı Adını Giriniz:");
+            //        string userName = Console.ReadLine();
 
-                Console.ReadKey();
-                Console.Clear();
+            //        Console.Write("Şifrenizi Giriniz:");
+            //        int password = Convert.ToInt32(Console.ReadLine());
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        tryCount++;
+            //        Console.WriteLine("Bir hata oluştu. " + ex.Message + " Lütfen bilgilerinizi kontrol edip tekrar giriniz.");
 
-                if (tryCount < 3)
-                    goto retry;
-                else
-                { 
-                    Console.WriteLine("Maksimum Deneme sayısını aştınız.");
-                    Console.ReadKey();
-                    goto bitir;
-                }
-            }
+            //        Console.ReadKey();
+            //        Console.Clear();
 
-            Console.WriteLine("Bitti. Çıkış için bir tuşa basın.");
+            //        if (tryCount < 3)
+            //            goto retry;
+            //        else
+            //        { 
+            //            Console.WriteLine("Maksimum Deneme sayısını aştınız.");
+            //            Console.ReadKey();
+            //            goto bitir;
+            //        }
+            //    }
 
-        bitir:
-            Console.ReadKey();
+            //    Console.WriteLine("Bitti. Çıkış için bir tuşa basın.");
 
+            //bitir:
+            //    Console.ReadKey(); 
+            #endregion
+
+
+            //---------------------------------------
+
+            // CLASS : Sınıf : Referans tipli, kullanıcı tanımlı yapılardır. Kendi özel tipimizi class ile yaratabiliriz. Referans tipli oldukları için datalarını belleğin heap bölgesinde saklarlar. Bu nedenle büyük data taşıyan yapıları, struct yerine class ile tanımlarız.
+
+            Book b1 = new Book();
+
+            b1.bookID = 1;
+            b1.bookName = "Test";
+            b1.author = "Vedat";
+            b1.bookType = "Polisiye";
+            b1.publisher = "ffffff";
+            b1.pages = 192;
+
+
+            Book b2 = new Book();
+
+            b2.bookID = 2;
+            b2.bookName = "Cin Ali";
+            b2.pages = 5;
+
+            b2 = b1;
+
+            Console.WriteLine(b2.bookName);
+
+            b1.bookName = "Vadideki Zambak";
+
+            Console.WriteLine(b2.bookName);
+            Console.WriteLine(b1.bookName);
+
+            string marka = "abcxyz";
+
+            Console.WriteLine("-------------------");
+           
+            Book b3 = new Book(3, "hgfd", "Vedat");
+
+            Console.WriteLine(b3.bookName);
         }
     }
 }
