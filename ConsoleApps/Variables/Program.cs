@@ -5,24 +5,24 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Variables
 {
     class Book
     {
         //constructor method
-        public Book() 
+        public Book()
         {
-            Console.WriteLine("aaaaaaaaaaaaa");
+            Console.WriteLine("Default Constructor metodu çalıştı.");
         }
 
         public Book(int iD, string name, string auth)
-        { 
+        {
             bookID = iD;
             bookName = name;
             author = auth;
-            Console.WriteLine("bbbbbbbbbbbbb");
+            Console.WriteLine(true);
         }
-
 
         //Field (alan) : class değişkenleri
         public int bookID;
@@ -30,9 +30,61 @@ namespace Variables
         public string author;
         public int pages;
         public string bookType; // db den 1,2,3 gibi datası geliyorsa int olmalı.
-        public string publisher; 
-        
+        public string publisher;
 
+        //kullanıcı tanımlı metodlar
+
+        public void GetInfo()
+        {
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("ID:{0} Kitap Adı:{1} Yazarı:{2} Sayfa Sayısı:{3} Türü:{4} Yayınevi:{5}", bookID, bookName, author, pages, bookType, publisher);
+        }
+
+        public string GetAuthor()
+        {
+            return author;
+        }
+
+
+        public bool isAuthorExist()
+        {
+            if (author != null && author.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    partial class Computer
+    {
+        public static double Compute(double number1, double number2, char oprt)
+        {
+            double result = 0;
+
+            switch (oprt)
+            {
+                case '*':
+                    result = number1 * number2;
+                    break;
+                case '+':
+                    result = number1 + number2;
+                    break;
+                case '-':
+                    result = number1 - number2;
+                    break;
+                case '/':
+                    if (number2 != 0)
+                        result = number1 / number2;
+                    break;
+                default:
+                    break;
+            }
+            return result;
+        }
 
 
     }
@@ -73,9 +125,6 @@ namespace Variables
 
     internal class Program
     {
-
-
-
         static void Main(string[] args)
         {
             /*
@@ -290,38 +339,192 @@ namespace Variables
 
             // CLASS : Sınıf : Referans tipli, kullanıcı tanımlı yapılardır. Kendi özel tipimizi class ile yaratabiliriz. Referans tipli oldukları için datalarını belleğin heap bölgesinde saklarlar. Bu nedenle büyük data taşıyan yapıları, struct yerine class ile tanımlarız.
 
-            Book b1 = new Book();
+            //    Book b1 = new Book();
 
-            b1.bookID = 1;
-            b1.bookName = "Test";
-            b1.author = "Vedat";
-            b1.bookType = "Polisiye";
-            b1.publisher = "ffffff";
-            b1.pages = 192;
+            //    b1.bookID = 1;
+            //    b1.bookName = "Test";
+            //    //b1.author = "Vedat";
+            //    b1.bookType = "Polisiye";
+            //    b1.publisher = "ffffff";
+            //    b1.pages = 192;
 
 
-            Book b2 = new Book();
+            //    Book b2 = new Book();
 
-            b2.bookID = 2;
-            b2.bookName = "Cin Ali";
-            b2.pages = 5;
+            //    b2.bookID = 2;
+            //    b2.bookName = "Cin Ali";
+            //    b2.pages = 5;
 
-            b2 = b1;
+            //    b2 = b1;
 
-            Console.WriteLine(b2.bookName);
+            //    Console.WriteLine(b2.bookName);
 
-            b1.bookName = "Vadideki Zambak";
+            //    b1.bookName = "Vadideki Zambak";
 
-            Console.WriteLine(b2.bookName);
-            Console.WriteLine(b1.bookName);
+            //    Console.WriteLine(b2.bookName);
+            //    Console.WriteLine(b1.bookName);
 
-            string marka = "abcxyz";
+            //    string marka = "abcxyz";
 
-            Console.WriteLine("-------------------");
-           
-            Book b3 = new Book(3, "hgfd", "Vedat");
+            //    Console.WriteLine("-------------------");
 
-            Console.WriteLine(b3.bookName);
+            //    Book b3 = new Book(3, "hgfd", "Vedat");
+
+            //    Console.WriteLine(b3.bookName);
+
+            //    b1.GetInfo();
+
+            //    b2.GetInfo();
+
+            //    b3.GetInfo();
+
+            //    string gelen = b1.GetAuthor();
+
+            //    if (gelen != null && gelen.Length > 0)
+            //    {
+            //        //Console.WriteLine(gelen);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine(b1.bookName + " isimli kitabın yazar adı girilmemiş.");
+
+            //        Console.WriteLine("{0} isimli kitabın yazar adı girilmemiş.", b1.bookName);
+
+            //        Console.WriteLine($"{b1.bookName} isimli kitabın yazar adı girilmemiş.");
+
+            //        //string metin = "";
+            //        //metin += b1.bookName;
+            //        //metin += " ";
+            //        //metin += "isimli kitabın yazar adı girilmemiş.";
+            //        //Console.WriteLine(metin);
+
+            //        StringBuilder sb = new StringBuilder();
+
+            //        sb.Append(b1.bookName);
+            //        sb.Append(" ");
+            //        sb.Append("isimli kitabın yazar adı girilmemiş.");
+
+            //        Console.WriteLine(sb.ToString());
+
+            //    }
+
+            //    if (b1.isAuthorExist())
+            //    {
+            //        Console.WriteLine(b1.GetAuthor());
+            //    }
+
+            //    Computer c1 = new Computer();
+
+            //    double result = c1.Multiply(25, 55);
+            //    Console.WriteLine($"Sonuc:{result}");
+
+            //    //TODO: Kullanıcıdan alınan 2 sayıyı, yine kullanıcının girdiği operatöre göre hesaplayacak programı yaz.
+
+
+            //    result = Computer.Compute(25, 55, '+');
+
+            //    Console.WriteLine($"Sonuc:{result}");
+
+            //    // Kullanıcıdan alınan değerlere göre hesaplama yapan program:
+            //    double dblNumber1 = 0, dblNumber2 = 0, dblResult = 0;
+            //    char oprt;
+
+            //retry1:
+            //    Console.Write("1. Sayıyı Giriniz:");
+            //    bool isSuccess = double.TryParse(Console.ReadLine(), out dblNumber1);
+
+            //    if(!isSuccess)
+            //        goto retry1;
+
+            //    retry2:
+            //    Console.Write("2. Sayıyı Giriniz:");
+            //    isSuccess = double.TryParse(Console.ReadLine(), out dblNumber2);
+
+            //    if (!isSuccess)
+            //        goto retry2;
+
+            //    retry3:
+            //    Console.Write("İşlem Seçiniz [+, -, *, /] :");
+            //    isSuccess = char.TryParse(Console.ReadLine(), out oprt);
+
+            //    //oprt = (char)Console.Read();
+
+            //    if (!isSuccess)
+            //        goto retry3;
+
+            //    if (oprt != '+' && oprt != '-' && oprt != '*' && oprt != '/')
+            //        goto retry3;
+
+            //        dblResult = Computer.Compute(dblNumber1, dblNumber2, oprt);
+
+            //    Console.WriteLine($"{dblNumber1}{oprt}{dblNumber2}={dblResult}");
+
+            // Araba.Test(); // static tanımlansaydı bu şekilde çalıştırılabilirdi.
+
+            //Araba ferrari = new Araba();
+
+
+
+            //ferrari.Hizlan();
+            //ferrari.Hizlan();
+            //ferrari.Hizlan();
+            //ferrari.Hizlan();
+
+            ////  ferrari.anlikHiz = 250;
+            //ferrari.Test();
+
+
+
+            Ucak u = new Ucak();
+
+            u.Marka = "Boeing";
+
+            Console.WriteLine(u.Marka);
+            Console.WriteLine(u.AnlikHiz);
+
+            ConsoleKeyInfo key;
+
+            do
+            {
+                key = Console.ReadKey();
+                if (key.Key == ConsoleKey.UpArrow)
+                {
+                    u.AnlikHiz += 20;
+                }
+                else if (key.Key == ConsoleKey.DownArrow)
+                {
+                    u.AnlikHiz -= 20;
+                }
+
+                Console.WriteLine(u.AnlikHiz);
+
+            } while (key.Key != ConsoleKey.Escape);
+
+
+            //u.AnlikHiz = 150;
+            //Console.WriteLine(u.AnlikHiz);
+            //u.AnlikHiz += 80;
+            //Console.WriteLine(u.AnlikHiz);
+            //u.AnlikHiz -= 500;
+            //Console.WriteLine(u.AnlikHiz);
+
+            //do
+            //{
+            //   ConsoleKeyInfo ki = Console.ReadKey();
+
+            //    Console.WriteLine(ki.Key +"-" + ki.KeyChar + " - " + ki.ToString());
+            //} while (true);
+
+            u.Marka = "Airbus";
+            u.Model = "A300";
+            u.Fiyat = -6545646;
+
+            double ff = u.Fiyat;
+
+            Console.WriteLine(u.Fiyat);
+
+            Console.ReadKey();
+
         }
     }
 }
