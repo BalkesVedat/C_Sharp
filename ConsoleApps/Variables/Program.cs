@@ -523,8 +523,35 @@ namespace Variables
 
             Console.WriteLine(u.Fiyat);
 
-            Console.ReadKey();
 
+            Canli c1 = new Canli();
+
+            c1.Tur = Turler.Kuş;
+            c1.Cinsi = "Penguen";
+            c1.AyakSayisi = 2;
+            c1.YuzebilirMi = true;
+            c1.Ses = Canli.SesVer(Turler.Kuş);
+
+            c1.SesCikar();
+
+            Canli c2 = new Canli(Turler.Sürüngen, "Kobra", 0, true, Canli.SesVer(Turler.Sürüngen));
+
+            c2.SesCikar();
+
+            Canli c3 = new Canli() 
+            {
+                Tur=Turler.Böcek, 
+                Ses= Canli.SesVer(Turler.Böcek), 
+                Cinsi="Hamam Böceği",
+                AyakSayisi=6,
+                YuzebilirMi=true
+            };
+
+            c3.SesCikar();
+
+            Console.WriteLine(Canli.SesVer(Turler.Sürüngen)); 
+
+            Console.ReadKey();
         }
     }
 }

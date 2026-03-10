@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CA594E0-979E-4C15-9F19-3C80AE2DEC39}</ProjectGuid>
+    <ProjectGuid>{C21B2D5A-8461-4FA1-B218-745C1DCED353}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Variables</RootNamespace>
-    <AssemblyName>Variables</AssemblyName>
+    <RootNamespace>OOP</RootNamespace>
+    <AssemblyName>OOP</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Araba.cs" />
-    <Compile Include="Canli.cs" />
-    <Compile Include="Computer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ucak.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
