@@ -8,6 +8,36 @@ using System.Threading.Tasks;
 
 namespace OOP
 {
+
+    #region OOP Ders Notları
+
+    /*
+      OOP - Object Oriented Programming - Nesneye Dayalı Programlama
+    
+    Programın içinde kullanılan değişenlerin, metodların ve yapıların daha düzenli yaratılabilmesini ve kullanılabilmesini sağlar. Kod tekrarını engeller. Kodların daha sade ve sağlıklı olmasını sağlar.
+    OOP KONULARI:
+    1- Encapsulation : Kapsülleme
+    Bir class içindeki fieldlara (class değişkenleri), class dışında erişimi kısıtlamak için kullanılır. field lar private olarak işaretlenir ve  bu fildlara dışarıdan erişim kapatılır. Fieldlara erişerek veri atama ya da okuma için dışarıdan erişime açık metodlar ya da public property'ler (getter - setter) kullanılır. Bu sayede erişim kontrollü hale gelir. Metod içinde ilave kontroller yapılarak verinin sağlıklı olarak iletimi garanti edilir. İstenmeyen kodlar dışarıya kapatılır.
+
+     2- Inheritance : Kalıtım
+        Bir class, başka bir class tan özellik ve diğer içeriklerini devralabilir. Ata sınıf içerisindeki bütün public elemanlar devralan sınıfa aktarılır. class alt_sinif: ata_sinif şeklinde tanımlanır. Ata sınıfa base class, alt sınıfa da derived class (türemiş sınıf) da denir. Bu işleme miras alma da denir.
+    3- Polimorphism - Polimorfizm - Çok biçimlilik
+        Bir sınıfın, ata sınıfları gibi davranabilmesi durumudur. Alt sınıflar içerisinde kendilerine özelliştirilmiş metodlara sahipse, ister ata sınıftaki aynı metodu, isterlerse kendi özelliştirilmiş (override) metodlarını çalıştırabilirler. Duruma göre ata sınıf gibi, duruma göre kendi sımıfları gibi çalıştırılabilmeleri durumudur. Bu konuya "object" sınıfı örnek gösterilebilir. C# ta bütün tipler, "object" tipinden türetilmişlerdir. Yani int, string, enum, struct, class, ... tüm tipler aynı zamanda birer object tir ve object yerine de kullanılabilirler. 
+
+    4 - Abstraction - Soyutlama
+        Ata sınıf içindeki metodun kendi görevi olmayacak ve kendisinden türetilen alt sınıflarda ezilerek (override) özelleştirilmeleri gerekecek ise, ata sınıftaki metod soyut metod (abstract) olarak tanımlanır. 
+    örneğin: public abstract void Oku(); şeklinde tanımlanırlar. (*)(*)(*) Abstract bir metodun gövdesi ({}) olmaz. Sadece alt sınıflarda yazılması gereken bir metodun tarifi (şablonu) niteliğindedir. (*) Alt sınıfta override edilerek yeniden yazılması zorunludur.
+    örneğin: public override void Oku() {..kodlar...;}
+    (*)  Eğer bir class içinde abstract bir nesne varsa, class ta abstract olmak zorundadır.
+    örneğin: public abstract class Document {....}  gibi yazılmalıdır.
+    (*) abstract olarak işaretlenmiş bir class tan nesne örneği alınamaz. Sadece bir şablon niteliğindedir ve kendisinden alt sınıfların türetilmesinde kullanılır.
+    örneğin :  Document doc = new Document();  yazılamaz.
+
+    */
+
+    #endregion
+
+
     abstract class Document
     {
         public string DosyaAd { get; set; } // 1 - Encapsulation - Kapsülleme - Property ile kontrollü field kullanımı
