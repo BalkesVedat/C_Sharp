@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -41,9 +42,9 @@
             this.lblClasses = new System.Windows.Forms.Label();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rb0 = new System.Windows.Forms.RadioButton();
+            this.rb50 = new System.Windows.Forms.RadioButton();
+            this.rb100 = new System.Windows.Forms.RadioButton();
             this.gbGender = new System.Windows.Forms.GroupBox();
             this.gbScholarship = new System.Windows.Forms.GroupBox();
             this.numAvgScore = new System.Windows.Forms.NumericUpDown();
@@ -67,8 +68,8 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rrrrToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,12 +79,22 @@
             this.studentClassesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.honorListReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSave = new System.Windows.Forms.Button();
+            this.rb75 = new System.Windows.Forms.RadioButton();
+            this.lbRecords = new System.Windows.Forms.ListBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gbGender.SuspendLayout();
             this.gbScholarship.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAvgScore)).BeginInit();
             this.gbHobbies.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -208,38 +219,39 @@
             this.rbMale.UseVisualStyleBackColor = true;
             this.rbMale.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // radioButton3
+            // rb0
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(16, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(39, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "%0";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rb0.AutoSize = true;
+            this.rb0.Checked = true;
+            this.rb0.Location = new System.Drawing.Point(16, 19);
+            this.rb0.Name = "rb0";
+            this.rb0.Size = new System.Drawing.Size(39, 17);
+            this.rb0.TabIndex = 12;
+            this.rb0.TabStop = true;
+            this.rb0.Text = "%0";
+            this.rb0.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rb50
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(77, 19);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(45, 17);
-            this.radioButton4.TabIndex = 13;
-            this.radioButton4.Text = "%50";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rb50.AutoSize = true;
+            this.rb50.Location = new System.Drawing.Point(61, 19);
+            this.rb50.Name = "rb50";
+            this.rb50.Size = new System.Drawing.Size(45, 17);
+            this.rb50.TabIndex = 13;
+            this.rb50.Text = "%50";
+            this.rb50.UseVisualStyleBackColor = true;
+            this.rb50.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
-            // radioButton5
+            // rb100
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(141, 19);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(51, 17);
-            this.radioButton5.TabIndex = 14;
-            this.radioButton5.Text = "%100";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            this.radioButton5.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
+            this.rb100.AutoSize = true;
+            this.rb100.Location = new System.Drawing.Point(163, 19);
+            this.rb100.Name = "rb100";
+            this.rb100.Size = new System.Drawing.Size(51, 17);
+            this.rb100.TabIndex = 14;
+            this.rb100.Text = "%100";
+            this.rb100.UseVisualStyleBackColor = true;
+            this.rb100.CheckedChanged += new System.EventHandler(this.radioButton5_CheckedChanged);
             // 
             // gbGender
             // 
@@ -257,28 +269,30 @@
             // 
             // gbScholarship
             // 
-            this.gbScholarship.Controls.Add(this.radioButton4);
-            this.gbScholarship.Controls.Add(this.radioButton3);
-            this.gbScholarship.Controls.Add(this.radioButton5);
+            this.gbScholarship.Controls.Add(this.rb75);
+            this.gbScholarship.Controls.Add(this.rb50);
+            this.gbScholarship.Controls.Add(this.rb0);
+            this.gbScholarship.Controls.Add(this.rb100);
             this.gbScholarship.Location = new System.Drawing.Point(99, 274);
             this.gbScholarship.Name = "gbScholarship";
             this.gbScholarship.Size = new System.Drawing.Size(228, 43);
             this.gbScholarship.TabIndex = 16;
             this.gbScholarship.TabStop = false;
             this.gbScholarship.Text = "Scholarship";
+            this.gbScholarship.Enter += new System.EventHandler(this.gbScholarship_Enter);
             // 
             // numAvgScore
             // 
-            this.numAvgScore.Location = new System.Drawing.Point(100, 324);
+            this.numAvgScore.Location = new System.Drawing.Point(445, 24);
             this.numAvgScore.Name = "numAvgScore";
-            this.numAvgScore.Size = new System.Drawing.Size(227, 20);
+            this.numAvgScore.Size = new System.Drawing.Size(86, 20);
             this.numAvgScore.TabIndex = 17;
             this.numAvgScore.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblAverageScore
             // 
             this.lblAverageScore.AutoSize = true;
-            this.lblAverageScore.Location = new System.Drawing.Point(21, 326);
+            this.lblAverageScore.Location = new System.Drawing.Point(360, 24);
             this.lblAverageScore.Name = "lblAverageScore";
             this.lblAverageScore.Size = new System.Drawing.Size(78, 13);
             this.lblAverageScore.TabIndex = 18;
@@ -294,9 +308,9 @@
             this.gbHobbies.Controls.Add(this.chkSports);
             this.gbHobbies.Controls.Add(this.chkChess);
             this.gbHobbies.Controls.Add(this.chkBook);
-            this.gbHobbies.Location = new System.Drawing.Point(100, 352);
+            this.gbHobbies.Location = new System.Drawing.Point(363, 62);
             this.gbHobbies.Name = "gbHobbies";
-            this.gbHobbies.Size = new System.Drawing.Size(150, 126);
+            this.gbHobbies.Size = new System.Drawing.Size(168, 126);
             this.gbHobbies.TabIndex = 19;
             this.gbHobbies.TabStop = false;
             this.gbHobbies.Text = "Hobbies";
@@ -305,7 +319,7 @@
             // chkGaming
             // 
             this.chkGaming.AutoSize = true;
-            this.chkGaming.Location = new System.Drawing.Point(81, 94);
+            this.chkGaming.Location = new System.Drawing.Point(100, 94);
             this.chkGaming.Name = "chkGaming";
             this.chkGaming.Size = new System.Drawing.Size(62, 17);
             this.chkGaming.TabIndex = 13;
@@ -325,7 +339,7 @@
             // chkTravel
             // 
             this.chkTravel.AutoSize = true;
-            this.chkTravel.Location = new System.Drawing.Point(81, 71);
+            this.chkTravel.Location = new System.Drawing.Point(100, 71);
             this.chkTravel.Name = "chkTravel";
             this.chkTravel.Size = new System.Drawing.Size(56, 17);
             this.chkTravel.TabIndex = 8;
@@ -335,7 +349,7 @@
             // chkArts
             // 
             this.chkArts.AutoSize = true;
-            this.chkArts.Location = new System.Drawing.Point(81, 48);
+            this.chkArts.Location = new System.Drawing.Point(100, 48);
             this.chkArts.Name = "chkArts";
             this.chkArts.Size = new System.Drawing.Size(44, 17);
             this.chkArts.TabIndex = 7;
@@ -345,7 +359,7 @@
             // chkMusic
             // 
             this.chkMusic.AutoSize = true;
-            this.chkMusic.Location = new System.Drawing.Point(81, 26);
+            this.chkMusic.Location = new System.Drawing.Point(100, 26);
             this.chkMusic.Name = "chkMusic";
             this.chkMusic.Size = new System.Drawing.Size(54, 17);
             this.chkMusic.TabIndex = 6;
@@ -387,7 +401,7 @@
             // picPhoto
             // 
             this.picPhoto.Image = ((System.Drawing.Image)(resources.GetObject("picPhoto.Image")));
-            this.picPhoto.Location = new System.Drawing.Point(503, 19);
+            this.picPhoto.Location = new System.Drawing.Point(574, 23);
             this.picPhoto.Name = "picPhoto";
             this.picPhoto.Size = new System.Drawing.Size(240, 180);
             this.picPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -397,7 +411,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(544, 205);
+            this.btnBrowse.Location = new System.Drawing.Point(615, 209);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(72, 29);
             this.btnBrowse.TabIndex = 21;
@@ -407,7 +421,7 @@
             // 
             // btnClearPicture
             // 
-            this.btnClearPicture.Location = new System.Drawing.Point(622, 205);
+            this.btnClearPicture.Location = new System.Drawing.Point(693, 209);
             this.btnClearPicture.Name = "btnClearPicture";
             this.btnClearPicture.Size = new System.Drawing.Size(82, 29);
             this.btnClearPicture.TabIndex = 22;
@@ -424,7 +438,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(425, 262);
+            this.lblAddress.Location = new System.Drawing.Point(360, 209);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(45, 13);
             this.lblAddress.TabIndex = 24;
@@ -432,11 +446,11 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(503, 259);
+            this.txtAddress.Location = new System.Drawing.Point(363, 226);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAddress.Size = new System.Drawing.Size(240, 37);
+            this.txtAddress.Size = new System.Drawing.Size(201, 60);
             this.txtAddress.TabIndex = 23;
             // 
             // menuStrip1
@@ -465,26 +479,26 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "&Open";
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.printToolStripMenuItem.Text = "&Print";
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.closeToolStripMenuItem.Text = "&Close";
-            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // rrrrToolStripMenuItem
             // 
             this.rrrrToolStripMenuItem.Name = "rrrrToolStripMenuItem";
-            this.rrrrToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
+            this.rrrrToolStripMenuItem.Size = new System.Drawing.Size(100, 6);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.closeToolStripMenuItem.Text = "&Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // operationsToolStripMenuItem
             // 
@@ -499,19 +513,19 @@
             // addStudentToolStripMenuItem
             // 
             this.addStudentToolStripMenuItem.Name = "addStudentToolStripMenuItem";
-            this.addStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addStudentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.addStudentToolStripMenuItem.Text = "&Add Student";
             // 
             // editStudentToolStripMenuItem
             // 
             this.editStudentToolStripMenuItem.Name = "editStudentToolStripMenuItem";
-            this.editStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editStudentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.editStudentToolStripMenuItem.Text = "&Edit Student";
             // 
             // deleteStudentToolStripMenuItem
             // 
             this.deleteStudentToolStripMenuItem.Name = "deleteStudentToolStripMenuItem";
-            this.deleteStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteStudentToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.deleteStudentToolStripMenuItem.Text = "&Delete Student";
             // 
             // reportingToolStripMenuItem
@@ -544,19 +558,82 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(564, 324);
+            this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSave.Location = new System.Drawing.Point(640, 262);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 55);
             this.btnSave.TabIndex = 26;
             this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // rb75
+            // 
+            this.rb75.AutoSize = true;
+            this.rb75.Location = new System.Drawing.Point(112, 19);
+            this.rb75.Name = "rb75";
+            this.rb75.Size = new System.Drawing.Size(45, 17);
+            this.rb75.TabIndex = 15;
+            this.rb75.Text = "%75";
+            this.rb75.UseVisualStyleBackColor = true;
+            // 
+            // lbRecords
+            // 
+            this.lbRecords.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbRecords.FormattingEnabled = true;
+            this.lbRecords.Location = new System.Drawing.Point(0, 343);
+            this.lbRecords.Name = "lbRecords";
+            this.lbRecords.Size = new System.Drawing.Size(826, 147);
+            this.lbRecords.TabIndex = 27;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "message text";
+            this.notifyIcon1.BalloonTipTitle = "Dikkat";
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "75";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 70);
+            this.contextMenuStrip1.Text = "Aç";
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.toolStripMenuItem1.Text = "Aç";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Kapat";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(105, 22);
+            this.toolStripMenuItem3.Text = "Yazdır";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 490);
+            this.Controls.Add(this.lbRecords);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.txtAddress);
@@ -593,6 +670,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picPhoto)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -612,9 +691,9 @@
         private System.Windows.Forms.Label lblClasses;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rb0;
+        private System.Windows.Forms.RadioButton rb50;
+        private System.Windows.Forms.RadioButton rb100;
         private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.GroupBox gbScholarship;
         private System.Windows.Forms.NumericUpDown numAvgScore;
@@ -649,6 +728,14 @@
         private System.Windows.Forms.ToolStripMenuItem studentClassesReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem honorListReportToolStripMenuItem;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.RadioButton rb75;
+        private System.Windows.Forms.ListBox lbRecords;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
 
