@@ -77,6 +77,7 @@
             this.btnBackSpace.TabIndex = 1;
             this.btnBackSpace.Text = "";
             this.btnBackSpace.UseVisualStyleBackColor = true;
+            this.btnBackSpace.Click += new System.EventHandler(this.btnBackSpace_Click);
             // 
             // btnC
             // 
@@ -167,6 +168,7 @@
             this.btnComma.TabIndex = 12;
             this.btnComma.Text = ",";
             this.btnComma.UseVisualStyleBackColor = true;
+            this.btnComma.Click += new System.EventHandler(this.btnComma_Click);
             // 
             // btn6
             // 
@@ -279,6 +281,7 @@
             this.btnResult.TabIndex = 22;
             this.btnResult.Text = "=";
             this.btnResult.UseVisualStyleBackColor = false;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // btnAdd
             // 
@@ -293,6 +296,7 @@
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "+";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.OperatorKeyPress);
             // 
             // btnSubtract
             // 
@@ -307,6 +311,7 @@
             this.btnSubtract.TabIndex = 19;
             this.btnSubtract.Text = "-";
             this.btnSubtract.UseVisualStyleBackColor = true;
+            this.btnSubtract.Click += new System.EventHandler(this.OperatorKeyPress);
             // 
             // btnDivide
             // 
@@ -321,6 +326,7 @@
             this.btnDivide.TabIndex = 18;
             this.btnDivide.Text = "/";
             this.btnDivide.UseVisualStyleBackColor = true;
+            this.btnDivide.Click += new System.EventHandler(this.OperatorKeyPress);
             // 
             // btnMultiply
             // 
@@ -335,6 +341,7 @@
             this.btnMultiply.TabIndex = 17;
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = true;
+            this.btnMultiply.Click += new System.EventHandler(this.OperatorKeyPress);
             // 
             // FrmCalc
             // 

@@ -12,6 +12,17 @@ namespace MultiForm
 {
     public partial class FrmCalc : Form
     {
+        //string oprt = "";
+        //double number1, number2, result;
+
+        public string oprt { get; set; }
+        public double number1 { get; set; }
+        public double number2 { get; set; }
+        public double result { get; set; }
+
+        public bool isComputed { get; set; }
+
+
         public FrmCalc()
         {
             InitializeComponent();
@@ -24,6 +35,12 @@ namespace MultiForm
 
         private void NumericKeyPress(object sender, EventArgs e)
         {
+            if (isComputed)
+            {
+                txtScreen.Text = "0";
+                isComputed = false;
+            }
+
             if (txtScreen.Text == "0")
             {
                 txtScreen.Text = string.Empty;
@@ -32,6 +49,72 @@ namespace MultiForm
             Button btn = (Button)sender;
             txtScreen.Text += btn.Text;
         }
+
+        private void OperatorKeyPress(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            oprt = btn.Text;
+            number1 = Convert.ToDouble(txtScreen.Text);
+            txtScreen.Text = "0";
+        }
+
+        private void btnResult_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            number2 = Convert.ToDouble(txtScreen.Text);
+
+            switch (oprt)
+            {
+                case "+":
+                    result = number1 + number2;
+                    break;
+                case "-":
+                    result = number1 - number2;
+                    break;
+                case "*":
+                    result = number1 * number2;
+                    break;
+                case "/":
+                    if (number2 == 0)
+                        result = 0;
+                    else
+                        result = number1 / number2;
+
+                    break;
+                default:
+                    //result = 0;
+                    break;
+            }
+
+            txtScreen.Text = result.ToString();
+            number1 = result;
+            isComputed = true;
+
+        }
+
+        private void btnComma_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBackSpace_Click(object sender, EventArgs e)
+        {
+            string value = txtScreen.Text;
+            int len = value.Length;
+
+            if (len == 1)
+                txtScreen.Text = "0";
+            else
+                txtScreen.Text = value.Substring(0, len - 1);
+
+            //-----------------------------------------------------------------------------
+            //if (txtScreen.Text.Length == 1)
+            //    txtScreen.Text = "0";
+            //else
+            //    txtScreen.Text = txtScreen.Text.Substring(0, txtScreen.Text.Length - 1);
+
+        }
+
 
         //NOT: Alttaki kodları kapattık. Çünkü butonların Click Event delegesine doğrudan NumericKeyPress metodunu bağladığımız için bunlara gerek kalmadı.
 
