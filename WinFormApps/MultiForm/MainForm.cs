@@ -14,6 +14,7 @@ namespace MultiForm
     {
         Notepad frmNotepad = new Notepad();
         MultiPanelForm frmMpf = new MultiPanelForm();
+        FrmCalc frmCalc = new FrmCalc();
 
 
         public MainForm()
@@ -34,6 +35,11 @@ namespace MultiForm
         private void btnTabPanel_Click(object sender, EventArgs e)
         {
             frmMpf.ShowDialog();
+        }
+
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            frmCalc.ShowDialog();
         }
     }
 }

@@ -32,6 +32,7 @@
             this.btnNotepad = new System.Windows.Forms.Button();
             this.btnTabPanel = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnCalc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnNotepad
@@ -50,7 +51,7 @@
             // 
             this.btnTabPanel.BackColor = System.Drawing.Color.LightGreen;
             this.btnTabPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTabPanel.Location = new System.Drawing.Point(318, 155);
+            this.btnTabPanel.Location = new System.Drawing.Point(318, 156);
             this.btnTabPanel.Name = "btnTabPanel";
             this.btnTabPanel.Size = new System.Drawing.Size(174, 41);
             this.btnTabPanel.TabIndex = 1;
@@ -64,19 +65,32 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(318, 217);
+            this.btnExit.Location = new System.Drawing.Point(318, 286);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(174, 44);
+            this.btnExit.Size = new System.Drawing.Size(174, 41);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "EXIT";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnCalc
+            // 
+            this.btnCalc.BackColor = System.Drawing.Color.Thistle;
+            this.btnCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCalc.Location = new System.Drawing.Point(318, 221);
+            this.btnCalc.Name = "btnCalc";
+            this.btnCalc.Size = new System.Drawing.Size(174, 41);
+            this.btnCalc.TabIndex = 3;
+            this.btnCalc.Text = "Calculator";
+            this.btnCalc.UseVisualStyleBackColor = false;
+            this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCalc);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnTabPanel);
             this.Controls.Add(this.btnNotepad);
@@ -91,5 +105,6 @@
         private System.Windows.Forms.Button btnNotepad;
         private System.Windows.Forms.Button btnTabPanel;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnCalc;
     }
 }

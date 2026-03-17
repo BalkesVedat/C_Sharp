@@ -12,3 +12,4 @@ C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\Wi
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\WinFormApps\MultiForm\obj\Debug\MultiForm.exe
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\WinFormApps\MultiForm\obj\Debug\MultiForm.pdb
 C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\WinFormApps\MultiForm\obj\Debug\MultiForm.exe.config
+C:\Users\ARIBILGI\Desktop\ÖĞRETMEN YEDEK\VEDAT HOCA\H.İçi Gündüz\KODLAR\WinFormApps\MultiForm\obj\Debug\MultiForm.FrmCalc.resources
