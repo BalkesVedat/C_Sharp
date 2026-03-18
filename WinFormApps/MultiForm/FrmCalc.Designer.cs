@@ -50,6 +50,7 @@
             this.btnSubtract = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
+            this.txtControl = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtScreen
@@ -89,6 +90,7 @@
             this.btnC.TabIndex = 3;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // btnCE
             // 
@@ -100,6 +102,7 @@
             this.btnCE.TabIndex = 4;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btn1
             // 
@@ -155,6 +158,7 @@
             this.btnSign.TabIndex = 8;
             this.btnSign.Text = "+/-";
             this.btnSign.UseVisualStyleBackColor = true;
+            this.btnSign.Click += new System.EventHandler(this.btnSign_Click);
             // 
             // btnComma
             // 
@@ -343,11 +347,26 @@
             this.btnMultiply.UseVisualStyleBackColor = true;
             this.btnMultiply.Click += new System.EventHandler(this.OperatorKeyPress);
             // 
+            // txtControl
+            // 
+            this.txtControl.BackColor = System.Drawing.SystemColors.Control;
+            this.txtControl.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtControl.Enabled = false;
+            this.txtControl.Font = new System.Drawing.Font("Digital-7", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtControl.ForeColor = System.Drawing.Color.Black;
+            this.txtControl.Location = new System.Drawing.Point(16, 73);
+            this.txtControl.Name = "txtControl";
+            this.txtControl.ReadOnly = true;
+            this.txtControl.Size = new System.Drawing.Size(323, 16);
+            this.txtControl.TabIndex = 23;
+            this.txtControl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // FrmCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 313);
+            this.ClientSize = new System.Drawing.Size(608, 313);
+            this.Controls.Add(this.txtControl);
             this.Controls.Add(this.btnResult);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnSubtract);
@@ -400,5 +419,6 @@
         private System.Windows.Forms.Button btnSubtract;
         private System.Windows.Forms.Button btnDivide;
         private System.Windows.Forms.Button btnMultiply;
+        private System.Windows.Forms.TextBox txtControl;
     }
 }

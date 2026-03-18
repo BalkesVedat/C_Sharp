@@ -56,6 +56,7 @@ namespace MultiForm
             oprt = btn.Text;
             number1 = Convert.ToDouble(txtScreen.Text);
             txtScreen.Text = "0";
+            txtControl.Text = number1 + " " + oprt;
         }
 
         private void btnResult_Click(object sender, EventArgs e)
@@ -87,14 +88,18 @@ namespace MultiForm
             }
 
             txtScreen.Text = result.ToString();
+            txtControl.Text = number1 + " " + oprt + " " + number2 + " = ";
             number1 = result;
-            isComputed = true;
-
+            isComputed = true;      
         }
 
         private void btnComma_Click(object sender, EventArgs e)
         {
-
+            if (txtScreen.Text.Contains(",") == false)  // if (!txtScreen.Text.Contains(","))
+            {
+                Button btn = (Button)sender;
+                txtScreen.Text += btn.Text;
+            }
         }
 
         private void btnBackSpace_Click(object sender, EventArgs e)
@@ -113,6 +118,34 @@ namespace MultiForm
             //else
             //    txtScreen.Text = txtScreen.Text.Substring(0, txtScreen.Text.Length - 1);
 
+        }
+
+        private void btnSign_Click(object sender, EventArgs e)
+        {
+            if (txtScreen.Text.Substring(0,1) == "-")
+            {
+                txtScreen.Text.Remove(0, 1);
+                //txtScreen.Text = txtScreen.Text.Substring(1, txtScreen.Text.Length-1);
+            }
+            else 
+            { 
+                txtScreen.Text = "-" + txtScreen.Text;
+            }
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            txtScreen.Text = "0";
+        }
+
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            txtScreen.Text = "0";
+            number1 = 0;
+            number2 = 0;
+            result = 0;
+            oprt = "";
+            isComputed = false;
         }
 
 
