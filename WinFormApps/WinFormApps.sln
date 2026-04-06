@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormControls", "FormControl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiForm", "MultiForm\MultiForm.csproj", "{F48408E5-1D2E-4E87-A8AB-75751A4F6A35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDB", "MarketDB\MarketDB.csproj", "{70108F6F-DF71-44A2-8004-435816030F20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F48408E5-1D2E-4E87-A8AB-75751A4F6A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F48408E5-1D2E-4E87-A8AB-75751A4F6A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F48408E5-1D2E-4E87-A8AB-75751A4F6A35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70108F6F-DF71-44A2-8004-435816030F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70108F6F-DF71-44A2-8004-435816030F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70108F6F-DF71-44A2-8004-435816030F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70108F6F-DF71-44A2-8004-435816030F20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
