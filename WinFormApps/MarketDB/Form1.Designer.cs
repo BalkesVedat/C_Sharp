@@ -47,7 +47,7 @@
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.lblMessage = new System.Windows.Forms.Label();
+            this.btnNewRecord = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUnitPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgPhoto)).BeginInit();
@@ -84,6 +84,7 @@
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(127, 76);
+            this.txtProductName.MaxLength = 40;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(178, 20);
             this.txtProductName.TabIndex = 4;
@@ -136,6 +137,7 @@
             // txtQuantityPerUnit
             // 
             this.txtQuantityPerUnit.Location = new System.Drawing.Point(127, 157);
+            this.txtQuantityPerUnit.MaxLength = 20;
             this.txtQuantityPerUnit.Name = "txtQuantityPerUnit";
             this.txtQuantityPerUnit.Size = new System.Drawing.Size(178, 20);
             this.txtQuantityPerUnit.TabIndex = 10;
@@ -196,7 +198,8 @@
             // 
             // imgPhoto
             // 
-            this.imgPhoto.Location = new System.Drawing.Point(540, 41);
+            this.imgPhoto.Enabled = false;
+            this.imgPhoto.Location = new System.Drawing.Point(598, 37);
             this.imgPhoto.Name = "imgPhoto";
             this.imgPhoto.Size = new System.Drawing.Size(236, 157);
             this.imgPhoto.TabIndex = 15;
@@ -210,7 +213,7 @@
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(146, 39);
             this.btnCreate.TabIndex = 16;
-            this.btnCreate.Text = "CREATE PRODUCT";
+            this.btnCreate.Text = "INSERT PRODUCT";
             this.btnCreate.UseVisualStyleBackColor = false;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
@@ -224,6 +227,7 @@
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "UPDATE PRODUCT";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -235,23 +239,27 @@
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "DELETE PRODUCT";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lblMessage
+            // btnNewRecord
             // 
-            this.lblMessage.AutoSize = true;
-            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.Location = new System.Drawing.Point(540, 10);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(0, 20);
-            this.lblMessage.TabIndex = 19;
+            this.btnNewRecord.BackColor = System.Drawing.SystemColors.Window;
+            this.btnNewRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnNewRecord.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnNewRecord.Location = new System.Drawing.Point(268, 37);
+            this.btnNewRecord.Name = "btnNewRecord";
+            this.btnNewRecord.Size = new System.Drawing.Size(37, 32);
+            this.btnNewRecord.TabIndex = 20;
+            this.btnNewRecord.Text = "+";
+            this.btnNewRecord.UseVisualStyleBackColor = false;
+            this.btnNewRecord.Click += new System.EventHandler(this.btnNewRecord_Click);
             // 
             // frmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 490);
-            this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.btnNewRecord);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
@@ -274,6 +282,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmProducts";
             this.Text = "X Market Ürün İşlemleri";
+            this.Activated += new System.EventHandler(this.frmProducts_Activated);
             this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUnitPrice)).EndInit();
@@ -304,7 +313,7 @@
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Button btnNewRecord;
     }
 }
 

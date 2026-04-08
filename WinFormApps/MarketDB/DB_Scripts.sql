@@ -17,24 +17,62 @@
 ----------------------------------------------------------------------------------
 
 
-CREATE PROC Sp_EnsertProduct
-(
-@ProductName nvarchar(40),
-@SupplierID int,
-@CategoryID int,
-@QuantityPerUnit nvarchar(20),
-@UnitPrice money,
-@Discontinued bit
-)
-AS
-Insert Into Products (ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,
-Discontinued) VALUES (@ProductName,@SupplierID,@CategoryID,@QuantityPerUnit,@UnitPrice,@Discontinued)
+--CREATE PROC Sp_InsertProduct
+--(
+--@ProductName nvarchar(40),
+--@SupplierID int,
+--@CategoryID int,
+--@QuantityPerUnit nvarchar(20),
+--@UnitPrice money,
+--@Discontinued bit
+--)
+--AS
+--Insert Into Products (ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,
+--Discontinued) VALUES (@ProductName,@SupplierID,@CategoryID,@QuantityPerUnit,@UnitPrice,@Discontinued)
 ----------------------------------------------
 --EXEC Sp_InsertProduct 'dfdsf',1,1,'sdsadadasda',33.45,0
 
-EXEC Sp_EnsertProduct  @ProductName,@SupplierID,@CategoryID,@QuantityPerUnit,@UnitPrice,@Discontinued
+--EXEC Sp_InsertProduct  @ProductName,@SupplierID,@CategoryID,@QuantityPerUnit,@UnitPrice,@Discontinued
+-----------------------------------------------------------------
+--CREATE PROC Sp_DeleteProduct
+--(@ProductID int)
+--AS
+--DELETE FROM Products WHERE ProductID = @ProductID
+----------------------------------------------------
+--EXEC Sp_DeleteProduct 5
 
+--DROP PROC Sp_DeleteProduct
 
+----------------------------------------------------
+--CREATE PROC Sp_UpdateProduct
+--(
+--@ProductID int,
+--@ProductName nvarchar(40),
+--@SupplierID int,
+--@CategoryID int,
+--@QuantityPerUnit nvarchar(20),
+--@UnitPrice money,
+--@Discontinued bit
+--)
+--AS
+--BEGIN
+--	UPDATE Products 
+--	SET
+--	ProductName=@ProductName,
+--	SupplierID=@SupplierID,
+--	CategoryID=@CategoryID,
+--	QuantityPerUnit=@QuantityPerUnit,
+--	UnitPrice=@UnitPrice,
+--	Discontinued=@Discontinued
+--	WHERE ProductID = @ProductID
+--END
+------------------------------------------------------------------
+--CREATE PROC Sp_GetCategoryImage
+--(@CategoryID int)
+--AS
+--SELECT Picture FROM Categories WHERE CategoryID = @CategoryID
+----------------------------------------------------------------
+--EXEC Sp_GetCategoryImage 3
 
 
 

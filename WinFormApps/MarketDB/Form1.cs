@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Configuration;
 using System.Text;
@@ -46,6 +47,14 @@ namespace MarketDB
             RefreshSupplierList();
             RefreshCategoryList();
             ClearForm();
+            CreateModeActivate();
+        }
+
+        private void CreateModeActivate()
+        {
+            btnCreate.Enabled = true;
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
         }
 
         private void RefreshSupplierList()
@@ -96,9 +105,11 @@ namespace MarketDB
 
             adapter = new SqlDataAdapter(cmd);
 
+            pdt.Clear();
             adapter.Fill(pdt);
 
             this.gridProducts.DataSource = pdt;
+            // gridProducts.Refresh();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -118,14 +129,63 @@ namespace MarketDB
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbCategory.SelectedValue == null || cmbCategory.SelectedValue is DataRowView)
+            {
+                imgPhoto.Image = null;
+                return;
+            }
 
+            cmd.Parameters.Clear();
+            cmd.CommandText = "Sp_GetCategoryImage";
+            cmd.Parameters.AddWithValue("@CategoryID", cmbCategory.SelectedValue);
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            if (conn.State != ConnectionState.Open)
+            {
+                conn.Open();
+            }
+
+            byte[] imageBytes;
+            try
+            {
+                imageBytes = (byte[])cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                imageBytes = null;
+            }
+
+            if (imageBytes != null)
+            {
+                using (MemoryStream ms = new MemoryStream(imageBytes, 78, imageBytes.Length - 78))
+                {
+                    imgPhoto.Image = Image.FromStream(ms);
+                    imgPhoto.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+            }
+            else
+            {
+                imgPhoto.Image = null;
+            }
+
+            if (conn.State != ConnectionState.Closed)
+            {
+                conn.Close();
+            }
         }
-
-
-
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Ürünü eklemek istediğinize emin misiniz?", "Ürün Ekleme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Ürün ekleme işleminden vazgeçildi", "Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
             try
             {
                 GetFormData();
@@ -158,22 +218,27 @@ namespace MarketDB
                     conn.Open();
                 }
 
-                cmd.ExecuteNonQuery();
+                int affectedRecordCount = cmd.ExecuteNonQuery();
 
                 if (conn.State != ConnectionState.Closed)
                 {
                     conn.Close();
                 }
 
-                MessageBox.Show("Ürün Eklendi.");
-                ClearForm();
-                RefreshProductList();
+                if (affectedRecordCount > 0)
+                {
+                    MessageBox.Show("Ürün Eklendi.");
+                    RefreshProductList();
+                    ClearForm();
+                    CreateModeActivate();
+                }
+                else
+                    MessageBox.Show("Ürün Eklenemedi.");
 
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "* Hata oluştu: " + ex.Message;
-                MessageBox.Show(lblMessage.Text);
+                MessageBox.Show("* Hata oluştu: " + ex.Message);
             }
 
         }
@@ -198,6 +263,7 @@ namespace MarketDB
             txtQuantityPerUnit.Text = "";
             numUnitPrice.Value = 0;
             chkDiscontinued.Checked = false;
+            imgPhoto.Image = null;
         }
 
         private void gridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -206,9 +272,22 @@ namespace MarketDB
 
             DataGridViewRow row = gridProducts.Rows[e.RowIndex];
 
+            row.Selected = true;
+
+            if (row.Cells[0].Value.ToString().Length == 0)
+            {
+                ClearForm();
+                return;
+            }
+
             int rowProductID = (int)row.Cells["ProductID"].Value;
             string rowProductName = (string)row.Cells["ProductName"].Value;
-            int rowSupplierID = (int)row.Cells["SupplierID"].Value;
+
+            int rowSupplierID = 0;
+            if (row.Cells["SupplierID"].Value.ToString() != string.Empty)
+            {
+                rowSupplierID = (int)row.Cells["SupplierID"].Value;
+            }
 
             int rowCategoryID = 0;
 
@@ -221,7 +300,6 @@ namespace MarketDB
             decimal rowUnitPrice = (decimal)row.Cells["UnitPrice"].Value;
             bool rowDiscontinued = (bool)row.Cells["Discontinued"].Value;
 
-
             txtProductID.Text = rowProductID.ToString();
             txtProductName.Text = rowProductName;
             cmbSupplier.SelectedValue = rowSupplierID;
@@ -230,12 +308,143 @@ namespace MarketDB
             numUnitPrice.Value = rowUnitPrice;
             chkDiscontinued.Checked = rowDiscontinued;
 
+            CreateModeDeactivate();
+        }
 
+        private void CreateModeDeactivate()
+        {
+            btnCreate.Enabled = false;
+            btnDelete.Enabled = true;
+            btnUpdate.Enabled = true;
         }
 
         private void cmbSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnNewRecord_Click(object sender, EventArgs e)
+        {
+            CreateModeActivate();
+            ClearForm();
+            gridProducts.ClearSelection();
+            gridProducts.CurrentCell = null;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Silme işleminden vazgeçildi", "Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+
+            try
+            {
+                GetFormData();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "Sp_DeleteProduct";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductID", productID);
+
+                cmd.Connection = conn;
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int affectedRecordCount = cmd.ExecuteNonQuery();
+
+                if (conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+
+                if (affectedRecordCount > 0)
+                {
+                    MessageBox.Show("Ürün Silindi.");
+                    RefreshProductList();
+                    ClearForm();
+                    CreateModeActivate();
+                }
+                else
+                    MessageBox.Show("Bu ürüne ait satış kayıtları olduğundan dolayı silinemedi.");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("* Hata oluştu: " + ex.Message);
+            }
+
+        }
+
+        private void frmProducts_Activated(object sender, EventArgs e)
+        {
+            gridProducts.ClearSelection();
+            gridProducts.CurrentCell = null;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bu kaydı güncellemek istediğinize emin misiniz?", "Güncelleme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Güncelleme işleminden vazgeçildi", "Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return;
+            }
+
+            try
+            {
+                GetFormData();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "Sp_UpdateProduct";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ProductID", productID);
+                cmd.Parameters.AddWithValue("@ProductName", productName);
+                cmd.Parameters.AddWithValue("@SupplierID", supplierID);
+                cmd.Parameters.AddWithValue("@CategoryID", categoryID);
+                cmd.Parameters.AddWithValue("@QuantityPerUnit", quantityPerUnit);
+                cmd.Parameters.AddWithValue("@UnitPrice", unitPrice);
+                cmd.Parameters.AddWithValue("@Discontinued", discontinued);
+
+                cmd.Connection = conn;
+
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
+
+                int affectedRecordCount = cmd.ExecuteNonQuery();
+
+                if (conn.State != ConnectionState.Closed)
+                {
+                    conn.Close();
+                }
+
+                if (affectedRecordCount > 0)
+                {
+                    MessageBox.Show("Ürün Bilgileri Güncellendi.");
+                    RefreshProductList();
+                    ClearForm();
+                    CreateModeActivate();
+                }
+                else
+                    MessageBox.Show("Ürün Güncellenemedi.");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("* Hata oluştu: " + ex.Message);
+            }
         }
     }
 }
